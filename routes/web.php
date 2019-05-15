@@ -17,4 +17,17 @@ Route::get('/', function () {
 
 Auth::routes(['register'=>false]);
 
+Route::get('/admin/home',function(){
+	return view('admin.home');
+});
+Route::get('/profesor/home',function(){
+	return view('profesor.home');
+});
+Route::get('/revisor/home',function(){
+	return view('revisor.home');
+});
+Route::get('/dac/home',function(){
+	return view('dac.home');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
