@@ -130,11 +130,12 @@
 						</div>
 					</div>
 
-
 					<div class="form-group">
 					  	<label for="example-date-input">Fecha realización</label>
 					    <input class="form-control" type="date" value="2019-08-19" id="example-date-input">
 					</div>
+
+				
 
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
