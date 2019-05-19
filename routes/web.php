@@ -23,6 +23,9 @@ Route::get('/admin/home',function(){
 Route::get('/profesor/home',function(){
 	return view('profesor.home');
 });
+Route::get('/profesor/nuevaevidencia',function(){
+	return view('profesor.nuevaEvidencia');
+});
 Route::get('/revisor/home',function(){
 	return view('revisor.home');
 });

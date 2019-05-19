@@ -21,11 +21,3 @@
     </div>
 </div>
 @endsection
-
-
-<div class="container">
-    <div class="row">
-    
-    </div>
-    
-</div>
