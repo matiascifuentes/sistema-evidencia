@@ -3,12 +3,14 @@
 @section('content')
 
 <div class="container">
-	<div class="container text-center">
-		<h1>Formulario</h1>
-	</div>
+		<div class="row justify-content-center">
+			<div class="col-md-8 containerblue text-center">
+				<span>Formulario</span>
+			</div>
+		</div>
     <div class="row justify-content-center">
-    	<div class="col-md-8">
-    		<div class="card">
+    	<div class="col-md-8 paddingesp">
+    		<div class="card formulcard">
       		<div class="card-header">Generar formulario #1231</div>
     		<div class="card-body">
     			<form>
