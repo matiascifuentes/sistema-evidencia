@@ -78,3 +78,165 @@ div.buttonss a
 footer .footer-content .footer-bottom {
     padding: 30px;
 }
+
+
+footer .footer-content .footer-bottom .container {
+    max-width: 1300px;
+}
+/*.sticky{
+  position: fixed !important;
+  top: 0;
+  left: 0; 
+  right: 0;
+  
+     z-index: 4000;
+    width: 100%;
+    height:40px;
+}*/
+
+#myHeader {
+    left: 0; 
+    top: 0;
+    position: fixed !important;
+    width: 100%;
+    z-index: 2;
+}
+
+div.section-logins{
+     margin-top: 1.5em;
+    background-color: #0066cb;
+    text-align: center;
+    padding: 35px 0;
+    background-image: url(../../storage/app/public/images/gradiente-login.png);
+    /*background-image: url(http://portal.ucm.cl/content/themes/ucm/resources/assets/images/gradiente-login.png);*/
+}
+
+.bienvenidalog{
+ opacity: 0.8;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    background-image: url(../../storage/app/public/images/estudianteslog.jpg);
+    padding: 35px 0;
+    padding-bottom: 1.5rem;
+     margin-bottom: 1.5em;
+}
+
+header .header-content {
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    background-color: #fff;
+    float: left;
+    width: 100%;
+}
+
+header .header-content .header-top {
+    background-color: #253e85;
+    height: 35px;
+    transition: 0.5s;
+    float: left;
+    width: 100%;
+}
+
+.header-top .col ul li.current-menu-item {
+    background-color: #001740;
+}
+
+
+header .header-content .header-top .col ul li:hover, header .header-content .header-top .col ul li.current-menu-item {
+    background-color: #001740;
+}
+
+ul.menu{
+    display: inline-block;
+}
+
+
+header .header-content .header-top .col ul li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header .header-content .header-top .col .social ul li a {
+    font-size: 16px;
+    transition: 0.5s;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0;
+    text-align: center;
+}
+
+header .header-content .header-top .col ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+
+header .header-content .header-bottom {
+    float: left;
+    width: 100%;
+}
+
+header .header-content .header-bottom .col .logo {
+    padding: 25px 0;
+    overflow: hidden;
+    max-width: 196px;
+}
+
+#wrapper {
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+  position: relative;
+  z-Index: 1;
+}
+
+
+#app {
+    min-height: 200px;
+    margin-top: 130px;
+    z-index: 1;
+    position: relative;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .header-top {
+        display: none;
+    }
+}
+
+
+input {
+  border: none;
+  background: #fff;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  display: block;
+  position: relative;
+  z-index: 9; }
+
+  input::-webkit-input-placeholder {
+    color: #999; }
+  input::-moz-placeholder {
+    color: #999; }
+  input:-ms-input-placeholder {
+    color: #999; }
+  input:-moz-placeholder {
+    color: #999; }

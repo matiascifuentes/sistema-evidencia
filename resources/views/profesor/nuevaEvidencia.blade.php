@@ -76,25 +76,25 @@
 								<div class="col">
 									<div class="form-group">
 										<label for="example-date-input">Profesores</label>
-				  						<input type="number" name="quantity" min="1" max="5">
+				  						<input type="number" name="quantity" min="0" max="99999" value="0">
 									</div>
 								</div>
 								<div class="col">
 									<div class="form-group">
 										<label for="example-date-input">Profesores</label>
-				  						<input type="number" name="quantity" min="1" max="5">
+				  						<input type="number" name="quantity" min="0" max="99999" value="0">
 									</div>
 								</div>
 								<div class="col">
 									<div class="form-group">
 										<label for="example-date-input">Profesores</label>
-				  						<input type="number" name="quantity" min="1" max="5">
+				  						<input type="number" name="quantity" min="0" max="99999" value="0">
 									</div>
 								</div>
 								<div class="col">
 									<div class="form-group">
 										<label for="example-date-input">Profesores</label>
-				  						<input type="number" name="quantity" min="1" max="5">
+				  						<input type="number" name="quantity" min="0" max="99999" value="0">
 									</div>
 								</div>
 							</div>
@@ -105,25 +105,25 @@
 								<div class="col">
 									<div class="form-group">
 										<label for="example-date-input">Profesores</label>
-				  						<input type="number" name="quantity" min="1" max="5">
+				  						<input type="number" name="quantity" min="0" max="99999" value="0">
 									</div>
 								</div>
 								<div class="col">
 									<div class="form-group">
 										<label for="example-date-input">Profesores</label>
-				  						<input type="number" name="quantity" min="1" max="5">
+				  						<input type="number" name="quantity" min="0" max="99999" value="0">
 									</div>
 								</div>
 								<div class="col">
 									<div class="form-group">
 										<label for="example-date-input">Profesores</label>
-				  						<input type="number" name="quantity" min="1" max="5">
+				  						<input type="number" name="quantity" min="0" max="99999" value="0">
 									</div>
 								</div>
 								<div class="col">
 									<div class="form-group">
 										<label for="example-date-input">Profesores</label>
-				  						<input type="number" name="quantity" min="1" max="5">
+				  						<input type="number" name="quantity" min="0" max="99999" value="0">
 									</div>
 								</div>
 							</div>
