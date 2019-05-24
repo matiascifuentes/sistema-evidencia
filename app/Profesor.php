@@ -1,13 +1,13 @@
 <?php
 
-use App\Profesor;
+use App\Carrera;
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Carrera extends Model
+class Profesor extends Model
 {
     //
-    protected $table = 'carreras';
+    protected $table = 'profesor';
     public $incrementing = false;
 }
