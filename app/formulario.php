@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class formulario extends Model
 {
     //
+    protected $table = 'formularios';
 }

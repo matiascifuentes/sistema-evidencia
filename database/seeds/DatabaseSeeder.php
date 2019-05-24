@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AmbitoTableSeeder::class);
         $this->call(AlcanceTableSeeder::class);
         $this->call(TipoTableSeeder::class);
+        $this->call(DepartamentosTableSeeder::class);
+        $this->call(CarrerasTableSeeder::class);
     }
 }
