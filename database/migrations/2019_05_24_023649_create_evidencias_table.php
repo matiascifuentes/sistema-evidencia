@@ -19,7 +19,7 @@ class CreateEvidenciasTable extends Migration
             $table->unsignedInteger('formulario_id');
             $table->string('estado');
             $table->integer('nivel');
-            $table->unsignedInteger('folio_id');
+            $table->unsignedInteger('folio_id')->nullable();
             $table->string('codigo_car')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
