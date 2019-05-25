@@ -26,11 +26,15 @@ Route::get('/profesor/home',function(){
 Route::get('/profesor/nuevaevidencia',function(){
 	return view('profesor.nuevaEvidencia');
 });
-Route::get('/revisor/home',function(){
-	return view('revisor.home');
-});
+
 Route::get('/dac/home',function(){
 	return view('dac.home');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/revisor/home','Revisor\HomeRevisorController@index')->name('revisorHome');
+Route::get('/revisor/formularioEvidencia/{id}',[
+	'as' => 'formularioEvidencia-show',
+	'uses' => 'Revisor\HomeRevisorController@show'
+]);
