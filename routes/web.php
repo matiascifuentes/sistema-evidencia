@@ -42,6 +42,10 @@ Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 
 		'as' => 'aprobarEvidenciaRevisor',
 		'uses' => 'HomeRevisorController@aprobarEvidenciaRevisor'
 	]);
+	Route::post('/observacionRevisor/{id}',[
+		'as' => 'observacionRevisor',
+		'uses' => 'HomeRevisorController@observacionRevisor'
+	]);
 });
 
 //	Protección rutas DAC

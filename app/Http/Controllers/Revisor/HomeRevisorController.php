@@ -26,28 +26,6 @@ class HomeRevisorController extends Controller
                                 ->select('profesor.*','formularios.fecha_realizacion','formularios.titulo','carreras.nombre_car','formularios.id')
                                 ->get();
         return view('revisor.home',["evidencias"=>$evidencias]);
-        //return dd($evidencias);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -86,40 +64,6 @@ class HomeRevisorController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    /**
      * Modificar campo nivel de la tabla evidencias.
      *
      * @param  int  $id
@@ -136,5 +80,33 @@ class HomeRevisorController extends Controller
         return redirect()->route('revisorHome')->with('success','Evidencia enviada correctamente a D.A.C.');
     }
 
+    /**
+     * Agregar una observación a la evidencia y cambiar el nivel de la evidencia.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function observacionRevisor(Request $request, $id)
+    {
+        //  Validando los datos ingresados.
+        $validatedData=$request->validate([
+            'observacionRevisor' => 'required|string',
+        ]);
 
+        //  Creando la observación en la base de datos.
+        $observacion = new Observaciones;
+        $observacion->evidencia_id = $id;
+        $observacion->observacion = $request->input('observacionRevisor');
+        $observacion->user_id = auth()->user()->id;
+        $observacion->nivel = 2;    //El nivel en que fue realizada la observación fue revisor.
+        $observacion->save();
+
+        //  Enviando la evidencia a profesor.
+        $evidencia = Evidencia::find($id);  //Obteniendo los datos actuales de la evidencia. 
+        $evidencia->nivel = 1;  //Cambiando el nivel a profesor.
+        $evidencia->save();
+
+        return redirect()->route('revisorHome')->with('success','Observación agregada correctamente. La evidencia volvió al profesor.');
+    }
 }
