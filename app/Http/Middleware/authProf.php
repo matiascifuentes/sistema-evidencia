@@ -15,7 +15,7 @@ class authProf
      */
     public function handle($request, Closure $next)
     {
-        //  Redirección para usuarios que no son admin.
+        //  Redirección para usuarios que no son PROFESOR.
         if(auth()->check()){
             //  Redirección según tipo de usuario.
             if (auth()->user()->hasRole('admin')) {
