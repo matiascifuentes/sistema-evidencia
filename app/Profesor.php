@@ -9,5 +9,7 @@ class Profesor extends Model
 {
     //
     protected $table = 'profesor';
+    protected $primaryKey = 'run';
+    protected $keyType = 'string';
     public $incrementing = false;
 }

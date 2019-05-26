@@ -20,17 +20,25 @@ Auth::routes(['register'=>false]);
 Route::get('/admin/home',function(){
 	return view('admin.home');
 });
-Route::get('/profesor/home',function(){
-	return view('profesor.home');
+
+//	PROFESOR
+Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf'], 'prefix' => 'profesor'], function()
+{
+	Route::resource('home','HomeProfesorController');
+
+	Route::get('nuevaevidencia', 'HomeProfesorController@nuevaEvidencia')->name('nuevaevidencias');
+	Route::post('nuevaevidenciasdd', 'HomeProfesorController@nuevaEvidenciast')->name('nuevaEvidenciast');
+
+	Route::get('evidenciasaprobadas', 'HomeProfesorController@showEvidAprob')->name('muestraAprobadas');
+	Route::get('evidenciasnoaprobadas', 'HomeProfesorController@showEvidNoAprob')->name('muestraNoAprobadas');
 });
-Route::get('/profesor/nuevaevidencia',function(){
-	return view('profesor.nuevaEvidencia');
-});
+
 Route::get('/revisor/home',function(){
 	return view('revisor.home');
 });
 Route::get('/dac/home',function(){
 	return view('dac.home');
 });
+
 
 Route::get('/home', 'HomeController@index')->name('home');
