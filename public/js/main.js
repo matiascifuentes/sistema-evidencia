@@ -10,3 +10,15 @@
 //     header.classList.remove("sticky");
 //   }
 // }
+
+window.onload = addedSuccess;
+
+function addedSuccess() {
+       setTimeout(function() {
+         document.getElementById("demod").style = "display:none";
+       }, 10000);
+     }
+function addedSuccess2(){
+     
+   document.getElementById("demod").style = "display:none";
+ }
