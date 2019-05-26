@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class authProf
+class authRevisor
 {
     /**
      * Handle an incoming request.
@@ -15,15 +15,15 @@ class authProf
      */
     public function handle($request, Closure $next)
     {
-        //  Redirección para usuarios que no son PROFESOR.
+        //  Redirección para usuarios que no son REVISOR.
         if(auth()->check()){
             //  Redirección según tipo de usuario.
             if (auth()->user()->hasRole('admin')) {
                 return redirect('/admin/home');
             }
-            if(auth()->user()->hasRole('revisor'))
+            if(auth()->user()->hasRole('profesor'))
             {
-                return redirect('/revisor/home');
+                return redirect('/profesor/home');
             }
             if(auth()->user()->hasRole('dac'))
             {
@@ -34,7 +34,6 @@ class authProf
             // Usuario sin sesión.
             return redirect('/login');
         }
-        
         return $next($request);
     }
 }
