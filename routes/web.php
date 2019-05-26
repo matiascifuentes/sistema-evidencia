@@ -33,9 +33,7 @@ Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf'], 'prefix' 
 	Route::get('evidenciasnoaprobadas', 'HomeProfesorController@showEvidNoAprob')->name('muestraNoAprobadas');
 });
 
-Route::get('/dac/home',function(){
-	return view('dac.home');
-});
+Route::get('/dac/home','Dac\HomeDacController@index')->name('dacHome');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

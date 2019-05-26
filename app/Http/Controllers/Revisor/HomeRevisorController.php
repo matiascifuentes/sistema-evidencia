@@ -19,6 +19,7 @@ class HomeRevisorController extends Controller
     {
         //
         $evidencias = Evidencia::where('estado','Pendiente')
+                                ->where('nivel','2')
                                 ->join('profesor','evidencias.user_id','=','profesor.user_id')
                                 ->join('formularios','evidencias.formulario_id','=','formularios.id')
                                 ->join('carreras','evidencias.codigo_car','=','carreras.codigo_car')
