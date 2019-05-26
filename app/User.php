@@ -48,7 +48,7 @@ class User extends Authenticatable
         $profesor->nombre1 = $nombre1;
         $profesor->nombre2 = $nombre2;
         $profesor->apellido1 = $apellido1;
-        $profesor->apellido2 = $apellido1;
+        $profesor->apellido2 = $apellido2;
         $profesor->user_id = $user_id;
         $profesor->save();
     }

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class authRevisor
+class authAdmin
 {
     /**
      * Handle an incoming request.
@@ -18,12 +18,12 @@ class authRevisor
         //  Redirección para usuarios que no son admin.
         if(auth()->check()){
             //  Redirección según tipo de usuario.
-            if (auth()->user()->hasRole('admin')) {
-                return redirect('/admin/home');
-            }
-            if(auth()->user()->hasRole('profesor'))
-            {
+            if (auth()->user()->hasRole('profesor')) {
                 return redirect('/profesor/home');
+            }
+            if(auth()->user()->hasRole('revisor'))
+            {
+                return redirect('/revisor/home');
             }
             if(auth()->user()->hasRole('dac'))
             {

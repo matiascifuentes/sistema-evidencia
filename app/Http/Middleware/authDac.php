@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class authRevisor
+class authDac
 {
     /**
      * Handle an incoming request.
@@ -21,13 +21,13 @@ class authRevisor
             if (auth()->user()->hasRole('admin')) {
                 return redirect('/admin/home');
             }
+            if(auth()->user()->hasRole('revisor'))
+            {
+                return redirect('/revisor/home');
+            }
             if(auth()->user()->hasRole('profesor'))
             {
                 return redirect('/profesor/home');
-            }
-            if(auth()->user()->hasRole('dac'))
-            {
-                return redirect('/dac/home');
             }
         }
         else{
