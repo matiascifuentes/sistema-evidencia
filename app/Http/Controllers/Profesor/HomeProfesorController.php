@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Profesor;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use App\formulario;
 use App\Evidencia;
+
 
 
 class HomeProfesorController extends Controller
@@ -19,7 +21,11 @@ class HomeProfesorController extends Controller
      */
     public function index()
     {
+
          return view('profesor.home');   
+
+        //
+
     }
 
     /**
@@ -30,8 +36,8 @@ class HomeProfesorController extends Controller
     public function create()
     {
         //
-    
     return 'Hello World';
+
     }
 
     /**
