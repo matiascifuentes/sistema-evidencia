@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
-use App\formulario;
+use App\Formulario;
 use App\Evidencia;
 
 
