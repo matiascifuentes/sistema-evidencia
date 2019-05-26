@@ -22,7 +22,7 @@ Route::get('/admin/home',function(){
 });
 
 //	PROFESOR
-Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf'], 'prefix' => 'profesor'], function()
+Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'prefix' => 'profesor'], function()
 {
 	Route::resource('home','HomeProfesorController');
 
@@ -39,6 +39,9 @@ Route::get('/dac/home',function(){
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//	REVISOR
 
 Route::get('/revisor/home','Revisor\HomeRevisorController@index')->name('revisorHome');
 Route::get('/revisor/formularioEvidencia/{id}',[
