@@ -13,9 +13,15 @@
     		<div class="card formulcard">
       		<div class="card-header">Generar formulario #1231</div>
     		<div class="card-body">
-    			@if(count($errors) > 0)
-					{{dd($errors)}}
-    			@endif
+			    @if ($errors->any())
+			      <div class="alert alert-danger">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			              <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			      </div><br />
+			    @endif
     			<form method="POST" action="{{ route('nuevaEvidenciast') }}">
     				@csrf
     				<div class="form-group">
@@ -24,8 +30,21 @@
     				</div>
     				<div class="form-group">
 					    <label for="formGroupExampleInput">Carrera</label>
-					    <input type="text" class="form-control" id="formGroupExamplecarrera" placeholder="Example input" name="codigo_car">
+					    <select class="form-control" name="codigo_car">
+							<option value="CCV">Construcción Civil</option>
+							<option value="EICI">Ingeniería Ejecución en Computación e Informática</option>
+							<option value="ENFC">Enfermería Curicó</option>
+							<option value="ENFT">Enfermería Talca</option>
+							<option value="ICE">Ingeniería Civil Electrónica</option>
+							<option value="ICI">Ingeniería Civil Informática</option>
+							<option value="ICO">Ingeniería en Construcción</option>
+							<option value="INC">Ingeniería Civil</option>
+							<option value="IND">Ingeniería Civil Industrial</option>
+							<option value="KIN">Kinesiología</option>
+							<option value="PSI">Psicología</option>
+						</select>
 					</div>
+
     				<div class="form-group">
 					    <label for="formGroupExampleInput">Titulo</label>
 					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" name="titulo">
@@ -151,7 +170,7 @@
 
 					<div class="form-group">
 					  	<label for="example-date-input">Fecha realización</label>
-					    <input class="form-control" type="date" value="26/05/2019" id="example-date-input" name="fecha_realizacion">
+					    <input class="form-control" type="date" id="example-date-input" name="fecha_realizacion">
 					</div>
 
 					<button type="submit" class="btn btn-primary">Submit</button>

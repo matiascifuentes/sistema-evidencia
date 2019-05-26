@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Profesor;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use App\formulario;
@@ -121,7 +122,6 @@ class HomeProfesorController extends Controller
         $formulari->tipo_id = $request->tipo_id;
         $formulari->titulo = $request->titulo;
         $formulari->descripcion = $request->descripcion;
-        $formulari->codigo_car = $request->codigo_car;
         $formulari->fecha_realizacion = $request->fecha_realizacion;
         $formulari->int_estudiantes = $request->int_estudiantes;
         $formulari->int_profesores = $request->int_profesores;

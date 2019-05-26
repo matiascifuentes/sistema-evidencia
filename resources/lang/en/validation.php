@@ -128,8 +128,14 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'titulo' => [
+            'required' => '¡Por favor ingresa un titulo!',
+        ],
+        'descripcion' => [
+            'required' => '¡Por favor ingresa una descripción!',
+        ],
+        'fecha_realizacion' => [
+            'required' => '¡Por favor ingresa una fecha!',
         ],
     ],
 
