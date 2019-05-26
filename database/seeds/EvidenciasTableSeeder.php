@@ -70,5 +70,109 @@ class EvidenciasTableSeeder extends Seeder
         $evidencia->codigo_car = 'ICI';
         $evidencia->save();
 
+        $formulario = new Formulario;
+        $formulario->titulo = 'Formulario 2';
+        $formulario->descripcion = 'descripcion';
+        $formulario->fecha_realizacion = '24/05/2019';
+        $formulario->alcance_id = 4;
+        $formulario->ambito_id = 3;
+        $formulario->tipo_id = 3;
+        $formulario->int_estudiantes = 54;
+        $formulario->ext_estudiantes = 65;
+        $formulario->int_profesores = 54;
+        $formulario->ext_profesores = 53;
+        $formulario->int_autoridades = 3;
+        $formulario->ext_autoridades = 7;
+        $formulario->int_profesionales = 21;
+        $formulario->ext_profesionales = 23;
+        $formulario->save();
+    
+        $evidencia = new Evidencia;
+        $evidencia->user_id = 4;
+        $evidencia->formulario_id = $formulario->id;
+        $evidencia->estado = 'Pendiente';
+        $evidencia->nivel = 2;
+        $evidencia->folio_id = null;
+        $evidencia->codigo_car = 'IND';
+        $evidencia->save();
+
+        $formulario = new Formulario;
+        $formulario->titulo = 'Formulario 3';
+        $formulario->descripcion = 'descripcion';
+        $formulario->fecha_realizacion = '25/05/2019';
+        $formulario->alcance_id = 3;
+        $formulario->ambito_id = 6;
+        $formulario->tipo_id = 4;
+        $formulario->int_estudiantes = 89;
+        $formulario->ext_estudiantes = 100;
+        $formulario->int_profesores = 24;
+        $formulario->ext_profesores = 50;
+        $formulario->int_autoridades = 5;
+        $formulario->ext_autoridades = 4;
+        $formulario->int_profesionales = 5;
+        $formulario->ext_profesionales = 20;
+        $formulario->save();
+    
+        $evidencia = new Evidencia;
+        $evidencia->user_id = 4;
+        $evidencia->formulario_id = $formulario->id;
+        $evidencia->estado = 'Pendiente';
+        $evidencia->nivel = 2;
+        $evidencia->folio_id = null;
+        $evidencia->codigo_car = 'ICE';
+        $evidencia->save();
+
+        $formulario = new Formulario;
+        $formulario->titulo = 'Formulario 4';
+        $formulario->descripcion = 'descripcion';
+        $formulario->fecha_realizacion = '20/05/2019';
+        $formulario->alcance_id = 2;
+        $formulario->ambito_id = 5;
+        $formulario->tipo_id = 9;
+        $formulario->int_estudiantes = 54;
+        $formulario->ext_estudiantes = 65;
+        $formulario->int_profesores = 54;
+        $formulario->ext_profesores = 53;
+        $formulario->int_autoridades = 3;
+        $formulario->ext_autoridades = 7;
+        $formulario->int_profesionales = 21;
+        $formulario->ext_profesionales = 23;
+        $formulario->save();
+    
+        $evidencia = new Evidencia;
+        $evidencia->user_id = 4;
+        $evidencia->formulario_id = $formulario->id;
+        $evidencia->estado = 'Pendiente';
+        $evidencia->nivel = 3;
+        $evidencia->folio_id = null;
+        $evidencia->codigo_car = 'IND';
+        $evidencia->save();
+
+        $formulario = new Formulario;
+        $formulario->titulo = 'Formulario 5';
+        $formulario->descripcion = 'descripcion';
+        $formulario->fecha_realizacion = '19/05/2019';
+        $formulario->alcance_id = 3;
+        $formulario->ambito_id = 6;
+        $formulario->tipo_id = 14;
+        $formulario->int_estudiantes = 54;
+        $formulario->ext_estudiantes = 65;
+        $formulario->int_profesores = 54;
+        $formulario->ext_profesores = 53;
+        $formulario->int_autoridades = 3;
+        $formulario->ext_autoridades = 7;
+        $formulario->int_profesionales = 21;
+        $formulario->ext_profesionales = 23;
+        $formulario->save();
+    
+        $evidencia = new Evidencia;
+        $evidencia->user_id = 4;
+        $evidencia->formulario_id = $formulario->id;
+        $evidencia->estado = 'Pendiente';
+        $evidencia->nivel = 3;
+        $evidencia->folio_id = null;
+        $evidencia->codigo_car = 'ICI';
+        $evidencia->save();
+
     }
 }
