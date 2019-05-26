@@ -72,7 +72,7 @@ class HomeRevisorController extends Controller
                                 ->join('evidencias','evidencias.formulario_id','=','formularios.id')
                                 ->join('profesor','evidencias.user_id','=','profesor.user_id')
                                 ->join('carreras','evidencias.codigo_car','=','carreras.codigo_car')
-                                ->select('formularios.*','ambito.nombre as ambito','alcance.nombre as alcance','tipo.nombre as tipo','profesor.*','carreras.nombre_car')
+                                ->select('formularios.*','ambito.nombre as ambito','alcance.nombre as alcance','tipo.nombre as tipo','profesor.*','carreras.nombre_car','evidencias.id as evidencia_id')
                                 ->get();
 
             $observaciones = Observaciones::where('evidencia_id',$id)
@@ -118,4 +118,23 @@ class HomeRevisorController extends Controller
     {
         //
     }
+
+    /**
+     * Modificar campo nivel de la tabla evidencias.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function aprobarEvidenciaRevisor($id)
+    {
+        //   Obteniendo los datos actuales de la evidencia.
+        $evidencia = Evidencia::find($id);
+        //   Cambiando los datos antiguos por los nuevos.
+        $evidencia->nivel = 3;
+        //   Guardando los cambios.
+        $evidencia->save();
+        return redirect()->route('revisorHome')->with('success','Evidencia enviada correctamente a D.A.C.');
+    }
+
+
 }

@@ -110,7 +110,8 @@
                     </div>
                 </div>
                 <div class="card-footer text-center">
-                    <a class="btn btn-success btn-block" href="#">Opciones</a>
+                    <a class="btn btn-success btn-block" href="{{route('aprobarEvidenciaRevisor',$dato->evidencia_id)}}">Enviar a D.A.C.</a>
+                    <a class="btn btn-danger btn-block" href="#">Rechazar</a>
                 </div>
             </div>
         </div> 

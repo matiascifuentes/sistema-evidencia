@@ -1,8 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
+        @if(Session::has('success'))
+            <div class="col-md-12 alert alert-info" role="alert">
+                <button class='close' data-dismiss="alert">
+                    &times;
+                </button>
+                {{Session::get('success')}}
+            </div>
+        @endif
         <div class="col-md-8">
                 <div class="alert alert-info" role="alert">
                     <button class='close' data-dismiss="alert">
