@@ -40,6 +40,8 @@ Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'p
 //	Protección rutas REVISOR
 Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 'prefix' => 'revisor'], function()
 {
+	Route::resource('evidenciasenvdac','EvEnviadasDacController');
+
 	Route::get('home','HomeRevisorController@index')->name('revisorHome');
 	Route::get('formularioEvidencia/{id}',[
 		'as' => 'formularioEvidencia-show',
@@ -53,6 +55,8 @@ Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 
 		'as' => 'observacionRevisor',
 		'uses' => 'HomeRevisorController@observacionRevisor'
 	]);
+
+
 });
 
 //	Protección rutas DAC
