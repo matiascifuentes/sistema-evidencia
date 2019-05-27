@@ -4,12 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-                <div class="alert alert-info" role="alert">
-                    <button class='close' data-dismiss="alert">
-                        &times;
-                    </button>
-                        
-                    <strong>Bienvenido Dac</strong>
+            <div class="alert alert-info" role="alert">
+                <button class='close' data-dismiss="alert">
+                    &times;
+                </button>
+                    
+                <strong>Bienvenido Dac</strong>
             </div>
         </div>
     </div>
@@ -20,22 +20,23 @@
 
     <h2>Prioridad por</h2>
     <!-- Nav pills -->
-    <ul class="nav nav-pills" role="tablist">
+    <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="pill" href="#orden1">Fecha de realización ASC</a>
+            <a class="nav-link active" data-toggle="tab" href="#orden1">Fecha de realización ASC</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" href="#orden2">Fecha de realización DESC</a>
+            <a class="nav-link" data-toggle="tab" href="#orden2">Fecha de realización DESC</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" href="#orden3">Fecha de creación ASC</a>
+            <a class="nav-link" data-toggle="tab" href="#orden3">Fecha de creación ASC</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" href="#orden4">Fecha de creación DESC</a>
+            <a class="nav-link" data-toggle="tab" href="#orden4">Fecha de creación DESC</a>
         </li>
     </ul>
 
     <div class="tab-content">
+
         <div id="orden1" class="container tab-pane active"><br>
             <div class="col-md-6">
                @if($evidencias->count())
@@ -78,7 +79,7 @@
             </div> 
         </div>
 
-        <div id="orden2" class="container tab-pane active"><br>
+        <div id="orden2" class="container tab-pane fade"><br>
             <div class="col-md-6">
                @if($evidencias->count())
                @foreach($evidencias->sortByDesc('fecha_realizacion') as $evidencia)
@@ -120,7 +121,7 @@
             </div> 
         </div>
 
-        <div id="orden3" class="container tab-pane active"><br>
+        <div id="orden3" class="container tab-pane fade"><br>
             <div class="col-md-6">
                @if($evidencias->count())
                @foreach($evidencias->sortBy('fecha_creacion') as $evidencia)
@@ -162,7 +163,7 @@
             </div> 
         </div>
         
-        <div id="orden4" class="container tab-pane active"><br>
+        <div id="orden4" class="container tab-pane fade"><br>
             <div class="col-md-6">
                @if($evidencias->count())
                @foreach($evidencias->sortByDesc('fecha_creacion') as $evidencia)
@@ -203,6 +204,8 @@
                 @endif
             </div> 
         </div>
-    
+        
+    </div>
+</div>
 
 @endsection
