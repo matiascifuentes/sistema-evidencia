@@ -1,6 +1,6 @@
 # Gestión de Evidencias
 
-![logo](https://user-images.githubusercontent.com/33164820/58432095-c15f6580-807e-11e9-8cd3-8d9f0dd12c71.png)
+![logo](https://user-images.githubusercontent.com/33164820/58432095-c15f6580-807e-11e9-8cd3-8d9f0dd12c71.png){.logo}
 
 One Paragraph of project description goes here
 
