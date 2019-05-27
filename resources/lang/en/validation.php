@@ -137,6 +137,9 @@ return [
         'fecha_realizacion' => [
             'required' => '¡Por favor ingresa una fecha!',
         ],
+        'observacionRevisor' => [
+            'required' => '¡Por favor ingresa una descripción!',
+        ],
     ],
 
     /*

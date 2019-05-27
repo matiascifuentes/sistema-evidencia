@@ -1,8 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="col-md-12 alert alert-danger" role="alert">
+                <button class='close' data-dismiss="alert">
+                    &times;
+                </button>
+                {{ $error }}
+            </div>
+        @endforeach
+    @endif
     <div class="card-footer text-center">
         <a class="btn btn-success btn-block" href="{{route('revisorHome')}}">Volver al home</a>
     </div>
@@ -110,7 +119,18 @@
                     </div>
                 </div>
                 <div class="card-footer text-center">
-                    <a class="btn btn-success btn-block" href="#">Opciones</a>
+                    <a class="btn btn-success btn-block" href="{{route('aprobarEvidenciaRevisor',$dato->evidencia_id)}}">Enviar a D.A.C.</a>
+                    <button type="button" class="btn btn-block btn-danger" data-toggle="collapse" data-target="#form-obs">Rechazar con observaciones</button>
+                    <div id="form-obs" class="collapse">
+                        <form method="POST" action="{{ route('observacionRevisor',$dato->evidencia_id)}}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="observacionArea">Por favor, agregue sus observaciones y luego presione guardar.</label>
+                                <textarea class="form-control" id="observacionArea" rows="3" name="observacionRevisor"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div> 

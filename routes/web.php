@@ -32,6 +32,7 @@ Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'p
 	Route::get('evidenciasnoaprobadas', 'HomeProfesorController@showEvidNoAprob')->name('muestraNoAprobadas');
 });
 
+
 //	Protección rutas REVISOR
 Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 'prefix' => 'revisor'], function()
 {
@@ -39,6 +40,14 @@ Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 
 	Route::get('formularioEvidencia/{id}',[
 		'as' => 'formularioEvidencia-show',
 		'uses' => 'HomeRevisorController@show'
+	]);
+	Route::get('/aprobarEvidenciaRevisor/{id}',[
+		'as' => 'aprobarEvidenciaRevisor',
+		'uses' => 'HomeRevisorController@aprobarEvidenciaRevisor'
+	]);
+	Route::post('/observacionRevisor/{id}',[
+		'as' => 'observacionRevisor',
+		'uses' => 'HomeRevisorController@observacionRevisor'
 	]);
 });
 
