@@ -1,19 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <div class="col-md-12 alert alert-danger" role="alert">
-                <button class='close' data-dismiss="alert">
-                    &times;
-                </button>
-                {{ $error }}
-            </div>
-        @endforeach
-    @endif
     <div class="card-footer text-center">
-        <a class="btn btn-success btn-block" href="{{route('revisorHome')}}">Volver al home</a>
+        <a class="btn btn-success btn-block" href="{{route('dacHome')}}">Volver al home</a>
     </div>
     @if($datos->count())
     @foreach($datos as $dato)
@@ -119,47 +110,36 @@
                     </div>
                 </div>
                 <div class="card-footer text-center">
-                    <a class="btn btn-success btn-block" href="{{route('aprobarEvidenciaRevisor',$dato->evidencia_id)}}">Enviar a D.A.C.</a>
-                    <button type="button" class="btn btn-block btn-danger" data-toggle="collapse" data-target="#form-obs">Rechazar con observaciones</button>
-                    <div id="form-obs" class="collapse">
-                        <form method="POST" action="{{ route('observacionRevisor',$dato->evidencia_id)}}">
-                            @csrf
-                            <div class="form-group">
-                                <label for="observacionArea">Por favor, agregue sus observaciones y luego presione guardar.</label>
-                                <textarea class="form-control" id="observacionArea" rows="3" name="observacionRevisor"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </form>
-                    </div>
+                    <a class="btn btn-success btn-block" href="#">Opciones</a>
                 </div>
             </div>
         </div> 
         @if($observaciones->count())
 
         <div class="col-md-6">
-            @foreach($observaciones as $observacion)
-                <div class="shadow-lg mb-4 bg-white card">
-                    <div class="card-header bg-secondary">
-                        <div class="row">
-                            <div class="col-md-4 bg-white text-center">Nivel: {{$observacion->nivel}}</div>
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4 bg-white text-center">{{$observacion->created_at}}</div>                  
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        
-                        <div class="row">
-                            <div class="col-md-4">Observación: </div>
-                            <div class="col-md-8">{{$observacion->observacion}}</div>
-                        </div> 
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-6">{{$observacion->name}}</div>
-                            <div class="col-md-6 text-right">{{$observacion->email}}</div>
-                        </div> 
+             @foreach($observaciones as $observacion)
+           <div class="shadow-lg mb-4 bg-white card">
+                <div class="card-header bg-secondary">
+                    <div class="row">
+                        <div class="col-md-4 bg-white text-center">Nivel: {{$observacion->nivel}}</div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4 bg-white text-center">{{$observacion->created_at}}</div>                  
                     </div>
                 </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                        <div class="col-md-4">Observación: </div>
+                        <div class="col-md-8">{{$observacion->observacion}}</div>
+                    </div> 
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-6">{{$observacion->name}}</div>
+                        <div class="col-md-6 text-right">{{$observacion->email}}</div>
+                    </div> 
+                </div>
+            </div>
             @endforeach
         </div> 
         @else

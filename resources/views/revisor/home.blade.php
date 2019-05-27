@@ -1,21 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
+        @if(Session::has('success'))
+            <div class="col-md-12 alert alert-info" role="alert">
+                <button class='close' data-dismiss="alert">
+                    &times;
+                </button>
+                {{Session::get('success')}}
+            </div>
+        @endif
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in REVISOR!
-                </div>
+                <div class="alert alert-info" role="alert">
+                    <button class='close' data-dismiss="alert">
+                        &times;
+                    </button>
+                        
+                    <strong>Bienvenido revisor</strong>
             </div>
         </div>
     </div>
@@ -55,6 +58,7 @@
             </div>
         </div>
         @endforeach
+        {!!$evidencias->render()!!}
         @else
             <div class="alert alert-info">
                 <strong>¡No hay evidencias!</strong> En este momento no hay evidencias pendientes de revisión.
@@ -62,5 +66,5 @@
         @endif
 
     </div> 
-
+</div>
 @endsection

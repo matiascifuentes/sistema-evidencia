@@ -25,11 +25,17 @@ Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'p
 	Route::get('nuevaevidencia', 'HomeProfesorController@nuevaEvidencia')->name('nuevaevidencias');
 	Route::post('nuevaevidenciasdd', 'HomeProfesorController@nuevaEvidenciast')->name('nuevaEvidenciast');
 
+
 	Route::resource('evidenciasaprobadas','EvAprobController');
 	Route::resource('evidenciasnoaprobadas','EvNoAprobController');
 	// Route::get('evidenciasaprobadas', 'HomeProfesorController@showEvidAprob')->name('muestraAprobadas');
 	// Route::get('evidenciasnoaprobadas', 'HomeProfesorController@showEvidNoAprob')->name('muestraNoAprobadas');
+
+	Route::get('evidenciasCursoRevisor', 'HomeProfesorController@EvidenciaRevisor')->name('evidenciasC_revisor');
+	Route::get('evidenciasCursoDac', 'HomeProfesorController@EvidenciaDac')->name('evidenciasC_Dac');
+
 });
+
 
 //	Protección rutas REVISOR
 Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 'prefix' => 'revisor'], function()
@@ -39,16 +45,25 @@ Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 
 		'as' => 'formularioEvidencia-show',
 		'uses' => 'HomeRevisorController@show'
 	]);
+	Route::get('/aprobarEvidenciaRevisor/{id}',[
+		'as' => 'aprobarEvidenciaRevisor',
+		'uses' => 'HomeRevisorController@aprobarEvidenciaRevisor'
+	]);
+	Route::post('/observacionRevisor/{id}',[
+		'as' => 'observacionRevisor',
+		'uses' => 'HomeRevisorController@observacionRevisor'
+	]);
 });
 
 //	Protección rutas DAC
 Route::group(['namespace' => 'Dac', 'middleware' => ['authDac','auth'], 'prefix' => 'dac'], function()
 {
-	Route::get('home',function(){
-		return view('dac.home');
-	});
+	Route::get('home','HomeDacController@index')->name('dacHome');
+	Route::get('formularioDac/{id}',[
+		'as' => 'formularioDac-show',
+		'uses' => 'HomeDacController@show'
+	]);
 });
-
 
 //	Protección rutas ADMIN
 Route::group(['namespace' => 'Admin', 'middleware' => ['authAdmin','auth'], 'prefix' => 'admin'], function()

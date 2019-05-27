@@ -1,19 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-                <div class="alert alert-info" role="alert">
-                    <button class='close' data-dismiss="alert">
-                        &times;
-                    </button>
-                        
-                    <strong>Bienvenido Dac</strong>
-            </div>
-        </div>
-    </div>
-</div>
+
 <br>
 
 <div class="container">
@@ -57,5 +45,6 @@
         @endif
 
     </div> 
+</div> 
 
 @endsection
