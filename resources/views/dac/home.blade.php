@@ -4,22 +4,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in DAC!
-                </div>
+                <div class="alert alert-info" role="alert">
+                    <button class='close' data-dismiss="alert">
+                        &times;
+                    </button>
+                        
+                    <strong>Bienvenido Dac</strong>
             </div>
         </div>
     </div>
 </div>
+<br>
 
 <div class="container">
     <div class="col-md-6">
@@ -50,10 +45,11 @@
                 </div>
             </div>
             <div class="card-footer text-center">
-                <a class="btn btn-success btn-block" href="{{route('formularioEvidencia-show',$evidencia->id)}}">Revisar formulario</a>
+                <a class="btn btn-success btn-block" href="{{route('formularioDac-show',$evidencia->id)}}">Revisar formulario</a>
             </div>
         </div>
         @endforeach
+        {!!$evidencias->render()!!}
         @else
             <div class="alert alert-info">
                 <strong>¡No hay evidencias!</strong> En este momento no hay evidencias pendientes de revisión.

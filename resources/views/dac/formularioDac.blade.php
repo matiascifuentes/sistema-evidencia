@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="card-footer text-center">
-        <a class="btn btn-success btn-block" href="{{route('revisorHome')}}">Volver al home</a>
+        <a class="btn btn-success btn-block" href="{{route('dacHome')}}">Volver al home</a>
     </div>
     @if($datos->count())
     @foreach($datos as $dato)
@@ -117,29 +117,29 @@
         @if($observaciones->count())
 
         <div class="col-md-6">
-            @foreach($observaciones as $observacion)
-                <div class="shadow-lg mb-4 bg-white card">
-                    <div class="card-header bg-secondary">
-                        <div class="row">
-                            <div class="col-md-4 bg-white text-center">Nivel: {{$observacion->nivel}}</div>
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4 bg-white text-center">{{$observacion->created_at}}</div>                  
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        
-                        <div class="row">
-                            <div class="col-md-4">Observación: </div>
-                            <div class="col-md-8">{{$observacion->observacion}}</div>
-                        </div> 
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-6">{{$observacion->name}}</div>
-                            <div class="col-md-6 text-right">{{$observacion->email}}</div>
-                        </div> 
+             @foreach($observaciones as $observacion)
+           <div class="shadow-lg mb-4 bg-white card">
+                <div class="card-header bg-secondary">
+                    <div class="row">
+                        <div class="col-md-4 bg-white text-center">Nivel: {{$observacion->nivel}}</div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4 bg-white text-center">{{$observacion->created_at}}</div>                  
                     </div>
                 </div>
+                <div class="card-body">
+                    
+                    <div class="row">
+                        <div class="col-md-4">Observación: </div>
+                        <div class="col-md-8">{{$observacion->observacion}}</div>
+                    </div> 
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-6">{{$observacion->name}}</div>
+                        <div class="col-md-6 text-right">{{$observacion->email}}</div>
+                    </div> 
+                </div>
+            </div>
             @endforeach
         </div> 
         @else

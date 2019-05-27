@@ -1,19 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-                <div class="alert alert-info" role="alert">
-                    <button class='close' data-dismiss="alert">
-                        &times;
-                    </button>
-                        
-                    <strong>Bienvenido revisor</strong>
-            </div>
-        </div>
-    </div>
-</div>
+
 <br>
 
 <div class="container">
@@ -45,7 +33,7 @@
                 </div>
             </div>
             <div class="card-footer text-center">
-                <a class="btn btn-success btn-block" href="{{route('formularioEvidencia-show',$evidencia->id)}}">Revisar formulario</a>
+                <a class="btn btn-success btn-block" href="{{route('formularioDac-show',$evidencia->id)}}">Revisar formulario</a>
             </div>
         </div>
         @endforeach
@@ -57,5 +45,6 @@
         @endif
 
     </div> 
+</div> 
 
 @endsection

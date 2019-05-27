@@ -25,11 +25,13 @@ Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'p
 	Route::get('nuevaevidencia', 'HomeProfesorController@nuevaEvidencia')->name('nuevaevidencias');
 	Route::post('nuevaevidenciasdd', 'HomeProfesorController@nuevaEvidenciast')->name('nuevaEvidenciast');
 
+	Route::get('evidenciasCursoRevisor', 'HomeProfesorController@EvidenciaRevisor')->name('evidenciasC_revisor');
+	Route::get('evidenciasCursoDac', 'HomeProfesorController@EvidenciaDac')->name('evidenciasC_Dac');
+
 	Route::get('evidenciasaprobadas', 'HomeProfesorController@showEvidAprob')->name('muestraAprobadas');
 	Route::get('evidenciasnoaprobadas', 'HomeProfesorController@showEvidNoAprob')->name('muestraNoAprobadas');
 });
 
-Route::get('/dac/home','Dac\HomeDacController@index')->name('dacHome');
 //	Protección rutas REVISOR
 Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 'prefix' => 'revisor'], function()
 {
@@ -44,6 +46,10 @@ Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 
 Route::group(['namespace' => 'Dac', 'middleware' => ['authDac','auth'], 'prefix' => 'dac'], function()
 {
 	Route::get('home','HomeDacController@index')->name('dacHome');
+	Route::get('formularioDac/{id}',[
+		'as' => 'formularioDac-show',
+		'uses' => 'HomeDacController@show'
+	]);
 });
 
 //	Protección rutas ADMIN

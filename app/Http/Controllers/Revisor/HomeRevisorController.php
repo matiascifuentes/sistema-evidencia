@@ -24,7 +24,7 @@ class HomeRevisorController extends Controller
                                 ->join('formularios','evidencias.formulario_id','=','formularios.id')
                                 ->join('carreras','evidencias.codigo_car','=','carreras.codigo_car')
                                 ->select('profesor.*','formularios.fecha_realizacion','formularios.titulo','carreras.nombre_car','formularios.id')
-                                ->get();
+                                ->paginate(8);
         return view('revisor.home',["evidencias"=>$evidencias]);
         //return dd($evidencias);
     }
@@ -60,7 +60,9 @@ class HomeRevisorController extends Controller
     {
         //
         if (is_numeric($id)){
-            $id_form = Evidencia::where('id',$id)->select('formulario_id')->first();
+            $id_form = Evidencia::where('id',$id)
+                                ->where('nivel','2')
+                                ->select('formulario_id')->first();
             if (empty($id_form))
                 $formulario_id = 0;
             else
