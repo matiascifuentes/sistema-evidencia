@@ -724,3 +724,245 @@ ul#breadcrumbs-one  {
     font-size: 15px;
     margin: 0 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header .header-content .header-bottom {
+  float: left;
+  width: 100%;
+}
+header .header-content .header-bottom .col .logo {
+  padding: 25px 0;
+  overflow: hidden;
+  max-width: 196px;
+}
+@media all and (max-width: 1024px) {
+  header .header-content .header-bottom .col .logo {
+    padding: 10px 0;
+    width: 162px;
+  }
+}
+header .header-content .header-bottom .col .logo h1 {
+  display: none;
+}
+header .header-content .header-bottom .col .logo img {
+  width: 100%;
+  height: auto;
+}
+header .header-content .header-bottom .col .menu {
+  float: right;
+
+}
+@media all and (max-width: 1024px) {
+  header .header-content .header-bottom .col .menu {
+    display: none;
+  }
+}
+header .header-content .header-bottom .col .menu .principal-menu {
+  float: left;
+  height: 94px;
+  line-height: 94px;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul {
+  padding: 0;
+  margin: 0;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul > li {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  margin: 0 10px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  position: relative;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul > li a {
+  display: block;
+  padding: 15px 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul > li:hover a {
+  color: #d4a947;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul > li.current-menu-item,
+header .header-content .header-bottom .col .menu .principal-menu ul > li.current-menu-parent {
+  border-bottom: 1px solid #d4a947;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul > li.menu-item-has-children {
+  padding-right: 15px;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul > li.menu-item-has-children:after {
+  display: block;
+  font-family: 'FontAwesome';
+  content: '\f107';
+  position: absolute;
+  right: 0;
+  top: 14px;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul > li.menu-item-has-children:hover ul {
+  display: block;
+  -webkit-animation: slideUp 0.3s ease both;
+  -ms-animation: slideUp 0.3s ease both;
+  animation: slideUp 0.3s ease both;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul li ul {
+  position: absolute;
+  background-color: #f7f7f7;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  padding: 10px 0;
+  margin-top: -2px;
+  margin-left: -2px;
+  width: 250px;
+  display: none;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul li ul li {
+  display: block;
+  line-height: 1;
+  margin: 0;
+  border: none;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul li ul li a {
+  display: block;
+  padding: 13px 20px;
+  font-size: 13px;
+  color: #000 !important;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul li ul li:hover a {
+  background-color: #d4a947;
+  color: #fff !important;
+}
+header .header-content .header-bottom .col .menu .principal-menu ul li ul li.current-menu-item a,
+header .header-content .header-bottom .col .menu .principal-menu ul li ul li.current-menu-parent a {
+  background-color: #d4a947;
+  color: #fff !important;
+  border-color: none;
+}
+header .header-content .header-bottom .col .menu .principal-search {
+  float: left;
+  margin-left: 20px;
+  margin-top: 22px;
+}
+header .header-content .header-bottom .col .menu .principal-search button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  font-size: 18px;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+header .header-content .header-bottom .col .menu .principal-search button:hover {
+  background-color: #253e85;
+  color: #fff;
+}
+header .header-content .header-search {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  top: -100px;
+  height: 97px;
+  text-align: center;
+  opacity: 0;
+  transition: 0.4s;
+}
+header .header-content .header-search.header-search-loaded {
+  opacity: 1;
+  top: 35px;
+}
+header .header-content .header-search form {
+  display: inline-block;
+  background-color: #fff;
+  margin: 20px 0;
+}
+header .header-content .header-search form input,
+header .header-content .header-search form button {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  height: 50px;
+  border: none;
+}
+header .header-content .header-search form input {
+  padding: 0 !important;
+  color: #57585e;
+  border-bottom: 1px solid #d4a947;
+  margin-right: -4px;
+  width: 550px;
+  max-width: 550px;
+}
+header .header-content .header-search form input::-webkit-input-placeholder {
+  color: #57585e;
+}
+header .header-content .header-search form input::-moz-placeholder {
+  color: #57585e;
+}
+header .header-content .header-search form input:-moz-placeholder {
+  color: #57585e;
+}
+header .header-content .header-search form input:-ms-input-placeholder {
+  color: #57585e;
+}
+header .header-content .header-search form button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border-bottom: 1px solid #d4a947;
+  font-size: 20px;
+  color: #57585e;
+}
+header.fixed-in .header-content .header-top {
+  height: 2px;
+}
+header.fixed-in .header-content .header-bottom .logo {
+  padding: 15px 0;
+}
+header.fixed-in .header-content .header-bottom .menu ul {
+  padding: 20px 0;
+}
+
+header .header-content .header-bottom .col .menu .principal-search {
+  float: left;
+  margin-left: 20px;
+  margin-top: 22px;
+}
+header .header-content .header-bottom .col .menu .principal-search button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  font-size: 18px;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+header .header-content .header-bottom .col .menu .principal-search button:hover {
+  background-color: #253e85;
+  color: #fff;
+}
