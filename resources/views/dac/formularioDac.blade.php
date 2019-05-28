@@ -110,7 +110,18 @@
                     </div>
                 </div>
                 <div class="card-footer text-center">
-                    <a class="btn btn-success btn-block" href="#">Opciones</a>
+                    <a class="btn btn-success btn-block" href="{{route('aprobarEvidenciaDac',$dato->evidencia_id)}}">Aprobar Evidencia.</a>
+                    <button type="button" class="btn btn-block btn-danger" data-toggle="collapse" data-target="#form-obs">Rechazar con observaciones</button>
+                    <div id="form-obs" class="collapse">
+                        <form method="POST" action="{{ route('observacionDac',$dato->evidencia_id)}}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="observacionArea">Por favor, agregue sus observaciones y luego presione guardar.</label>
+                                <textarea class="form-control" id="observacionArea" rows="3" name="observacionDac"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div> 

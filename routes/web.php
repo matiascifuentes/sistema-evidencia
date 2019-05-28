@@ -69,6 +69,15 @@ Route::group(['namespace' => 'Dac', 'middleware' => ['authDac','auth'], 'prefix'
 		'as' => 'formularioDac-show',
 		'uses' => 'HomeDacController@show'
 	]);
+
+	Route::get('/aprobarEvidenciaDac/{id}',[
+		'as' => 'aprobarEvidenciaDac',
+		'uses' => 'HomeDacController@aprobarEvidenciaDac'
+	]);
+	Route::post('/observacionDac/{id}',[
+		'as' => 'observacionDac',
+		'uses' => 'HomeDacController@observacionDac'
+	]);
 });
 
 //	Protección rutas ADMIN
@@ -77,6 +86,8 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['authAdmin','auth'], 'pre
 	Route::get('home',function(){
 		return view('admin.home');
 	});
+	Route::resource('users','UsersController');
 });
+
 
 
