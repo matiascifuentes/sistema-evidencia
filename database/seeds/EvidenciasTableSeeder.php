@@ -2,6 +2,7 @@
 
 use App\Evidencia;
 use App\Formulario;
+use App\Observaciones;
 use Illuminate\Database\Seeder;
 
 class EvidenciasTableSeeder extends Seeder
@@ -148,6 +149,13 @@ class EvidenciasTableSeeder extends Seeder
         $evidencia->codigo_car = 'IND';
         $evidencia->save();
 
+        $observacion = new Observaciones;
+        $observacion->evidencia_id = $evidencia->id;
+        $observacion->observacion = "Esto es una observación de prueba, en este espacio van las observaciones.";
+        $observacion->user_id = 2;
+        $observacion->nivel = 2; 
+        $observacion->save();
+
         $formulario = new Formulario;
         $formulario->titulo = 'Formulario 5';
         $formulario->descripcion = 'descripcion';
@@ -173,6 +181,13 @@ class EvidenciasTableSeeder extends Seeder
         $evidencia->folio_id = null;
         $evidencia->codigo_car = 'ICI';
         $evidencia->save();
+
+        $observacion = new Observaciones;
+        $observacion->evidencia_id = $evidencia->id;
+        $observacion->observacion = "Esto es una observación de prueba, en este espacio van las observaciones.";
+        $observacion->user_id = 2;
+        $observacion->nivel = 2; 
+        $observacion->save();
 
     }
 }
