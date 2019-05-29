@@ -1,61 +1,81 @@
-@extends('layouts.layout')
+@extends('layouts.app')
+
 @section('content')
-<div class="row">
-	<section class="content">
-		<div class="col-md-8 col-md-offset-2">
-			@if (count($errors) > 0)
-			<div class="alert alert-danger">
-				<strong>Error!</strong> Revise los campos obligatorios.<br><br>
-				<ul>
-					@foreach ($errors->all() as $error)
-					<li>{{ $error }}</li>
-					@endforeach
-				</ul>
-			</div>
-			@endif
-			@if(Session::has('success'))
-			<div class="alert alert-info">
-				{{Session::get('success')}}
-			</div>
-			@endif
- 
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Nuevo Usuario</h3>
-				</div>
-				<div class="panel-body">					
-					<div class="table-container">
-						<form method="POST" action="{{ route('users.store') }}"  role="form">
-							{{ csrf_field() }}
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" name="name" id="name" class="form-control input-sm" placeholder="Nombre">
-									</div>
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email">
-									</div>
-								</div>
-							</div>
- 
-							<div class="form-group">
-								<textarea name="password" class="form-control input-sm" placeholder="Contraseña"></textarea>
-							</div>
-							<div class="row">
- 
-								<div class="col-xs-12 col-sm-12 col-md-12">
-									<input type="submit"  value="Guardar" class="btn btn-success btn-block">
-									<a href="{{ route('users.index') }}" class="btn btn-info btn-block" >Atrás</a>
-								</div>	
- 
-							</div>
-						</form>
-					</div>
-				</div>
- 
+
+<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8 containerblue text-center">
+				<span>Nuevo Profesor</span>
 			</div>
 		</div>
-	</section>
+    <div class="row justify-content-center">
+    	<div class="col-md-8 paddingesp">
+    		<div class="card formulcard">
+      		<div class="card-header">Generar formulario #1231</div>
+    		<div class="card-body">
+			    @if ($errors->any())
+			      <div class="alert alert-danger">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			              <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			      </div><br />
+			    @endif
+    			<form method="POST" action="{{ route('users.store') }}">
+    				@csrf
+    				<div class="form-group">
+					    <label for="formGroupExampleInput">Carrera</label>
+					    <select class="form-control" name="codigo_car">
+							<option value="CCV">Construcción Civil</option>
+							<option value="EICI">Ingeniería Ejecución en Computación e Informática</option>
+							<option value="ENFC">Enfermería Curicó</option>
+							<option value="ENFT">Enfermería Talca</option>
+							<option value="ICE">Ingeniería Civil Electrónica</option>
+							<option value="ICI">Ingeniería Civil Informática</option>
+							<option value="ICO">Ingeniería en Construcción</option>
+							<option value="INC">Ingeniería Civil</option>
+							<option value="IND">Ingeniería Civil Industrial</option>
+							<option value="KIN">Kinesiología</option>
+							<option value="PSI">Psicología</option>
+						</select>
+					</div>
+					<div class="form-group">
+					    <label for="formGroupExampleInput">Run </label>
+					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese Run" name="run">
+					</div>
+    				<div class="form-group">
+					    <label for="formGroupExampleInput">Nombre 1</label>
+					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese Primer Nombre" name="name1">
+					</div>
+					<div class="form-group">
+					    <label for="exampleFormControlTextarea1">Nombre 2</label>
+					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese Segundo Nombre" name="name2"></input>
+					</div>
+					
+					<div class="form-group">
+					    <label for="exampleFormControlTextarea1">Apellido Paterno</label>
+					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese Apellido Pat." name="paterno"></input>
+					</div>
+					<div class="form-group">
+					    <label for="exampleFormControlTextarea1">Apellido Materno</label>
+					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese Apellido Mat." name="materno"></input>
+					</div>
+					<div class="form-group">
+					    <label for="exampleFormControlTextarea1">Email</label>
+					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese email" name="email"></input>
+					</div>
+					<div class="form-group">
+					    <label for="exampleFormControlTextarea1">Contraseña</label>
+					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese password" name="pass"></input>
+					</div>
+					<button type="submit" href="{{ route('users.index') }}" class="btn btn-primary">Submit</button>
+				</form>
+    			</div>
+			</div>
+    	</div>
+    </div>   
+</div>
+
 @endsection
+

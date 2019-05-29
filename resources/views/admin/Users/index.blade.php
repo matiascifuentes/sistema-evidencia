@@ -1,11 +1,10 @@
 @extends('layouts.app')
-
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 @section('content') 
-  @extends('layouts.layout')
-  @section('content')
+  <div class="container-fluid" style="margin-top: 10px">
     <div class="row">
       <section class="content">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 col-md-offset-12">
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="pull-left"><h3>Lista Usuarios</h3></div>
@@ -55,6 +54,12 @@
         </div>
       </div>
     </section>
+  </div>
+<style type="text/css">
+.table {
+    border-top: 2px solid #ccc;
+ 
+  }
+</style>
    
-  @endsection
 @endsection

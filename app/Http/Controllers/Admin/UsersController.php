@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Role;
+use App\Profesor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -40,9 +43,25 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'name'=>'required', 'email'=>'required', 'password'=>'required']);
-        User::create($request->all());
-        return redirect()->route('users.index')->with('success','Registro creado satisfactoriamente');
+        $validatedData=$request->validate([
+            'run' => 'required|max:255',
+            'name1' => 'required|max:255',
+            'name2' => 'required|max:255',
+            'paterno' => 'required|max:255',
+            'materno' => 'required|max:255',
+            'email' => 'required|max:255',
+            'pass' => 'required',
+            'codigo_car' => 'required',
+            ]);
+        $user = new User();
+        $user->name = 'profe';
+        $user->email = $request->email;
+        $user->password =Hash::make($request->pass);
+        $user->save();
+        $user->roles()->attach(Role::where('name', 'profesor')->first());
+        $user-> datos_profesor($request->run,$request->name1,$request->name2,$request->paterno,$request->materno,$user->id);
+        $user->profesor_carrera($request->run,$request->codigo_car); 
+        return redirect()->route('users.index')->with('success','Registro creado satisfactoriamente'); 
     }
 
     /**
@@ -66,7 +85,8 @@ class UsersController extends Controller
     {
         //
         $user=User::find($id);
-        return view('admin\Users.edit',["user"=>$user]);
+        $profe = Profesor::where('user_id', $id)->first();
+        return view('admin\Users.edit',["user"=>$user,"profe"=>$profe]);
     }
 
     /**
@@ -79,9 +99,29 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[ 'name'=>'required', 'email'=>'required']);
+        $validatedData=$request->validate([
+            'run' => 'required|max:255',
+            'name1' => 'required|max:255',
+            'name2' => 'required|max:255',
+            'paterno' => 'required|max:255',
+            'materno' => 'required|max:255',
+            'email' => 'required|max:255',
+            'pass' => 'required',
+            'codigo_car' => 'required',
+            ]);
  
-        User::find($id)->update($request->all());
+        $user = User::find($id);
+        $user->email = $request->email;
+        $user->password = Hash::make($request->pass);
+        $user->save();
+        $profe = Profesor::find('user_id',$id);
+        $profe->nombre1 = $request->name1;
+        $profe->nombre2 = $request->name2;
+        $profe->apellido1 = $request->paterno;
+        $profe->apellido2 = $request->materno;
+        $profe->save();
+
+
         return redirect()->route('users.index')->with('success','Registro actualizado satisfactoriamente');
     }
 
