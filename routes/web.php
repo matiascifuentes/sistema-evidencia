@@ -34,6 +34,11 @@ Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'p
 	Route::get('evidenciasCursoRevisor', 'HomeProfesorController@EvidenciaRevisor')->name('evidenciasC_revisor');
 	Route::get('evidenciasCursoDac', 'HomeProfesorController@EvidenciaDac')->name('evidenciasC_Dac');
 
+	Route::get('form_en_cursor/{id}',[
+		'as' => 'cursorevisor-show',
+		'uses' => 'HomeProfesorController@showRevisor'
+	]);
+
 });
 
 

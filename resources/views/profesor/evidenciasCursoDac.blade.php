@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="card-footer text-center">
-                <a class="btn btn-success btn-block" href="{{route('formularioDac-show',$evidencia->id)}}">Revisar formulario</a>
+                <a class="btn btn-success btn-block" href="{{route('cursorevisor-show',$evidencia->id)}}">Revisar formulario</a>
             </div>
         </div>
         @endforeach
