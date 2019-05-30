@@ -29,23 +29,50 @@
             <header>
                 <div class="header-content">
                     <div class="header-top">
-                        <div class="container">
+                        <div class="container-fluid">
                             <div class="row">
-                                <div class="col col-md-9">
+                                <div class="col col-md-9" style="padding-left: 0px">
                                     <div class="menu">
                                         <nav>
                                             <div class="menu-menu-barra-superior-container">
                                                 <ul class="menu" id="menu-menu-barra-superior">
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-795 current_page_item menu-item-799" id="menu-item-799">
-                                                        <a href="http://portal.ucm.cl/estudiantes">
-                                                            Portal del Estudiante
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15754" id="menu-item-15754">
-                                                        <a href="http://alu.ucm.cl" target="_blank">
-                                                            Mail Estudiante
-                                                        </a>
-                                                    </li>
+                                                    @guest
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                            <a href="{{ url('/') }}">
+                                                                Portal Evidencias
+                                                            </a>
+                                                        </li>
+                                                    @endguest
+                                                    @if(Auth::check())
+                                                    @if(auth()->user()->name == 'dac')
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                            <a href="{{route('dacHome')}}">
+                                                                Portal Evidencias
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if(auth()->user()->name == 'revisor')
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                            <a href="{{route('revisorHome')}}">
+                                                                Portal Evidencias
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if(auth()->user()->name == 'profe')
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                            <a href="{{route('profehome')}}">
+                                                                Portal Evidencias
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                    @if(auth()->user()->name == 'admin')
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                            <a href="{{url('admin/home')}}">
+                                                                Portal Evidencias
+                                                            </a>
+                                                        </li>
+                                                    @endif                                                                                                   
+                                                    @endif                                                
                                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-677" id="menu-item-677">
                                                         <a href="http://portal.ucm.cl/academicos">
                                                             Académicos
@@ -83,7 +110,7 @@
                                 </div>
                                 <div class="col col-md-3">
                                     <div class="social">
-                                        <nav class="text-right">
+                                        <nav class="text-left">
                                             <ul>
                                                 <li>
                                                     <a class="facebook-official" href="https://www.facebook.com/ucatolicadelmaule/" target="_blank" title="Facebook - Universidad Católica del Maule">
@@ -115,6 +142,34 @@
                                                         </i>
                                                     </a>
                                                 </li>
+                                                @guest
+                                                    <li>
+                                                        <a class="nav-link" style="margin-right: 35px; padding-left: 10px" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                    </li>
+                                                    @if (Route::has('register'))
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                        </li>
+                                                    @endif
+                                                @else
+                                                    <li class="nav-item dropdown">
+                                                        <a id="navbarDropdown" class="nav-link " style="padding-right:68px; padding-left:5px" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                        </a>
+
+                                                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                                            <a class="dropdown-item" href="{{ route('logout') }}" style="padding-right:135px;padding-left: 45px;color:black"
+                                                               onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
+                                                                {{ __('Salir') }}
+                                                            </a>
+
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                        </div>
+                                                    </li>
+                                                @endguest
                                             </ul>
                                         </nav>
                                     </div>
@@ -126,68 +181,17 @@
 
                 </div>
             </header>
-            <!-- navbar -->
-                        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
-                </div>
-            </nav>
         </div>
 
-        <div id="app">
+        <div id="app" style="margin-top: 50px">
 
-            <main class="py-4">
+            <main>
                 @yield('content')
             </main>
         </div>
 
         <!--footer-->
-
+        <br>    
         <footer>
             <div class="footer-content">
                 <div class="footer-top">

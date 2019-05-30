@@ -112,7 +112,7 @@ class HomeProfesorController extends Controller
                                 ->join('evidencias','evidencias.formulario_id','=','formularios.id')
                                 ->join('profesor','evidencias.user_id','=','profesor.user_id')
                                 ->join('carreras','evidencias.codigo_car','=','carreras.codigo_car')
-                                ->select('formularios.*','ambito.nombre as ambito','alcance.nombre as alcance','tipo.nombre as tipo','profesor.*','carreras.nombre_car','evidencias.id as evidencia_id','evidencias.nivel')
+                                ->select('formularios.*','ambito.nombre as ambito','alcance.nombre as alcance','tipo.nombre as tipo','profesor.*','carreras.nombre_car','evidencias.id as evidencia_id','evidencias.nivel','evidencias.estado')
                                 ->get();
 
             $observaciones = Observaciones::where('evidencia_id',$id)

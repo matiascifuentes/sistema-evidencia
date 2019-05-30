@@ -20,7 +20,7 @@ class EvAprobController extends Controller
                                 ->join('profesor','evidencias.user_id','=','profesor.user_id')
                                 ->join('formularios','evidencias.formulario_id','=','formularios.id')
                                 ->join('carreras','evidencias.codigo_car','=','carreras.codigo_car')
-                                ->select('profesor.*','formularios.fecha_realizacion','formularios.titulo','carreras.nombre_car','formularios.id','evidencias.codigo_car')
+                                ->select('profesor.*','formularios.fecha_realizacion','formularios.titulo','carreras.nombre_car','formularios.id','evidencias.codigo_car','evidencias.estado')
                                 ->get();
         return view('profesor.evidenciasAprobadasDac',["evidencias"=>$evidencias]);   
     }

@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="card">
+    <div class="card-header" 
+         style="text-align:center;font-size:18px;font-wight:bold;">
+            INFORMACIÓN DE EVIDENCIA</div>
+</div>
+<br>
 
 <div class="container">
-    <div class="card-footer text-center">
-        <a class="btn btn-success btn-block" href="{{route('evidenciasC_revisor')}}">Volver al home</a>
-    </div>
+
     @if($datos->count())
     @foreach($datos as $dato)
     <div class="row">
@@ -116,10 +120,21 @@
                     
                     </div>
                 @else
-                    <div class="card-footer text-center">
-                        <a class="btn btn-success btn-block" href="{{route('evidenciasC_Dac')}}">Volver.</a>
-                    
-                    </div>
+                    @if(($dato->estado)=='Finalizada')
+                        <div class="card-footer text-center">
+                            <a class="btn btn-success btn-block" href="{{route('evaprobadas')}}">Volver.</a>
+                        </div>                    
+                    @else
+                      @if((($dato->estado)=='Pendiente')AND($observaciones->count()))
+                        <div class="card-footer text-center">
+                            <a class="btn btn-success btn-block" href="{{route('evnoaprobadas')}}">Volver.</a>
+                        </div>                      
+                      @else
+                        <div class="card-footer text-center">
+                            <a class="btn btn-success btn-block" href="{{route('evidenciasC_Dac')}}">Volver.</a>
+                        </div>
+                       @endif 
+                    @endif
                 @endif
             </div>
         </div> 

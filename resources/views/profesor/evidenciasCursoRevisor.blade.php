@@ -2,10 +2,15 @@
 
 @section('content')
 
-<br>
+<div class="card">
+    <div class="card-header" 
+         style="text-align:center;font-size:18px;font-wight:bold;">
+            EVIDENCIAS EN REVISOR</div>
 
+</div>
+<br>
 <div class="container">
-    <div class="col-md-6">
+    <div class="col-md-6" style="margin-left:280px">
        @if($evidencias->count())
        @foreach($evidencias as $evidencia)
        <div class="shadow-lg mb-4 bg-white card">

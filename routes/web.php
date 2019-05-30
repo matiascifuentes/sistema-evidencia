@@ -12,22 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 Auth::routes(['register'=>false]);
-Route::get('/home', 'HomeController@index')->name('home');
+//	Route::get('/home', 'Auth/LoginController@redirectTo()')->name('home');
 
 //	Protección rutas PROFESOR
 Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'prefix' => 'profesor'], function()
 {
-	Route::resource('home','HomeProfesorController');
+	Route::get('home','HomeProfesorController@index')->name('profehome');
 
 	Route::get('nuevaevidencia', 'HomeProfesorController@nuevaEvidencia')->name('nuevaevidencias');
 	Route::post('nuevaevidenciasdd', 'HomeProfesorController@nuevaEvidenciast')->name('nuevaEvidenciast');
 
 
-	Route::resource('evidenciasaprobadas','EvAprobController');
-	Route::resource('evidenciasnoaprobadas','EvNoAprobController');
+	Route::get('evidenciasaprobadas','EvAprobController@index')->name('evaprobadas');
+	Route::get('evidenciasnoaprobadas','EvNoAprobController@index')->name('evnoaprobadas');
 	// Route::get('evidenciasaprobadas', 'HomeProfesorController@showEvidAprob')->name('muestraAprobadas');
 	// Route::get('evidenciasnoaprobadas', 'HomeProfesorController@showEvidNoAprob')->name('muestraNoAprobadas');
 
