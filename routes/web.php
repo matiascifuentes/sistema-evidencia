@@ -76,12 +76,18 @@ Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 
 //	Protección rutas DAC
 Route::group(['namespace' => 'Dac', 'middleware' => ['authDac','auth'], 'prefix' => 'dac'], function()
 {
-	Route::resource('historicoevaprob','HistoricoEvAprobController');
+	Route::get('historicoevaprob','HistoricoEvAprobController@index')->name('haprobados');
 	
 	Route::get('home','HomeDacController@index')->name('dacHome');
+	
 	Route::get('formularioDac/{id}',[
 		'as' => 'formularioDac-show',
 		'uses' => 'HomeDacController@show'
+	]);
+
+	Route::get('evidenciaFormulario/{id}',[
+		'as' => 'evidenciaHisAprobada',
+		'uses' => 'HomeDacController@showHisAprob'
 	]);
 
 	Route::get('/aprobarEvidenciaDac/{id}',[

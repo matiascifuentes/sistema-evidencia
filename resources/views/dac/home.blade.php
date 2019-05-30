@@ -42,6 +42,9 @@
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#orden4">Fecha de creación DESC</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('haprobados')}}">Historico Aprobados</a>
+        </li>
     </ul>
 
     <div class="tab-content">
