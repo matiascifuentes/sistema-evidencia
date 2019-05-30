@@ -20,7 +20,7 @@ class UsersController extends Controller
     {
         //
         $users=User::orderBy('id','DESC')->paginate(5);
-        return view('admin\Users.index',["users"=>$users]); 
+        return view('admin/Users/index',["users"=>$users]); 
     }
 
     /**
@@ -31,7 +31,7 @@ class UsersController extends Controller
     public function create()
     {
         //
-        return view('admin\Users.create');
+        return view('admin/Users/create');
     }
 
     /**
@@ -86,7 +86,7 @@ class UsersController extends Controller
         //
         $user=User::find($id);
         $profe = Profesor::where('user_id', $id)->first();
-        return view('admin\Users.edit',["user"=>$user,"profe"=>$profe]);
+        return view('admin/Users/edit',["user"=>$user,"profe"=>$profe]);
     }
 
     /**

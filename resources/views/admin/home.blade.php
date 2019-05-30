@@ -1,23 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in ADMINISTRADOR!
-                </div>
+<div class="container-fluid" style="padding-left: 300px;padding-right: 300px;padding-top: 30px;">
+        <div class="card bg-warning ">
+            <div class="card-body text-center">
+                <span ><i class="fa fa-users fa-3x fa-fw"></i></span>
+                <a class="btn btn-warning btn-block"style="color:black" href="{{route('users.index')}}"><p class="card-text">Administrar Usuarios</p></a>
             </div>
         </div>
-    </div>
+
+
 </div>
 @endsection

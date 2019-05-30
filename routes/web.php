@@ -107,6 +107,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['authAdmin','auth'], 'pre
 		return view('admin.home');
 	});
 	Route::resource('users','UsersController');
+;
 });
 
 
