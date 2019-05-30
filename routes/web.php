@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('auth/login');
 });
 Auth::routes(['register'=>false]);
-//	Route::get('/home', 'Auth/LoginController@redirectTo()')->name('home');
+
 
 //	Protección rutas PROFESOR
 Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'prefix' => 'profesor'], function()
@@ -28,8 +28,7 @@ Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'p
 
 	Route::get('evidenciasaprobadas','EvAprobController@index')->name('evaprobadas');
 	Route::get('evidenciasnoaprobadas','EvNoAprobController@index')->name('evnoaprobadas');
-	// Route::get('evidenciasaprobadas', 'HomeProfesorController@showEvidAprob')->name('muestraAprobadas');
-	// Route::get('evidenciasnoaprobadas', 'HomeProfesorController@showEvidNoAprob')->name('muestraNoAprobadas');
+
 
 	Route::get('evidenciasCursoRevisor', 'HomeProfesorController@EvidenciaRevisor')->name('evidenciasC_revisor');
 	Route::get('evidenciasCursoDac', 'HomeProfesorController@EvidenciaDac')->name('evidenciasC_Dac');
@@ -45,12 +44,22 @@ Route::group(['namespace' => 'Profesor', 'middleware' => ['authProf','auth'], 'p
 //	Protección rutas REVISOR
 Route::group(['namespace' => 'Revisor', 'middleware' => ['authRevisor','auth'], 'prefix' => 'revisor'], function()
 {
-	Route::resource('evidenciasenvdac','EvEnviadasDacController');
+	Route::get('evidenciasenvdac','EvEnviadasDacController@index')->name('evenviadas');
 
 	Route::get('home','HomeRevisorController@index')->name('revisorHome');
+
+	Route::get('evidenciasaprobadas','HomeRevisorController@getAp')->name('revaprobadas');
+
+	Route::get('evidenciasanoprobadas','HomeRevisorController@getNoAp')->name('revnoaprobadas');
+	
 	Route::get('formularioEvidencia/{id}',[
 		'as' => 'formularioEvidencia-show',
 		'uses' => 'HomeRevisorController@show'
+	]);
+	
+	Route::get('evidenciaAprobada/{id}',[
+		'as' => 'evidenciaAprobada',
+		'uses' => 'HomeRevisorController@showAprobadas'
 	]);
 	Route::get('/aprobarEvidenciaRevisor/{id}',[
 		'as' => 'aprobarEvidenciaRevisor',

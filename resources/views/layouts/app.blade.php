@@ -29,7 +29,7 @@
             <header>
                 <div class="header-content">
                     <div class="header-top">
-                        <div class="container-fluid">
+                        <div class="container-fluid ">
                             <div class="row">
                                 <div class="col col-md-9" style="padding-left: 0px">
                                     <div class="menu">
@@ -37,7 +37,7 @@
                                             <div class="menu-menu-barra-superior-container">
                                                 <ul class="menu" id="menu-menu-barra-superior">
                                                     @guest
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-795 current_page_item menu-item-799">
                                                             <a href="{{ url('/') }}">
                                                                 Portal Evidencias
                                                             </a>
@@ -45,28 +45,28 @@
                                                     @endguest
                                                     @if(Auth::check())
                                                     @if(auth()->user()->name == 'dac')
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-795 current_page_item menu-item-799" id="menu-item-799">
                                                             <a href="{{route('dacHome')}}">
                                                                 Portal Evidencias
                                                             </a>
                                                         </li>
                                                     @endif
                                                     @if(auth()->user()->name == 'revisor')
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-795 current_page_item menu-item-799" id="menu-item-799">
                                                             <a href="{{route('revisorHome')}}">
                                                                 Portal Evidencias
                                                             </a>
                                                         </li>
                                                     @endif
                                                     @if(auth()->user()->name == 'profe')
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-795 current_page_item menu-item-799" id="menu-item-799">
                                                             <a href="{{route('profehome')}}">
                                                                 Portal Evidencias
                                                             </a>
                                                         </li>
                                                     @endif
                                                     @if(auth()->user()->name == 'admin')
-                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-799" id="menu-item-799">
+                                                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-795 current_page_item menu-item-799" id="menu-item-799">
                                                             <a href="{{url('admin/home')}}">
                                                                 Portal Evidencias
                                                             </a>

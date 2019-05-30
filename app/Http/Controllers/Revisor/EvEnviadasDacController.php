@@ -22,7 +22,7 @@ class EvEnviadasDacController extends Controller
                                 ->join('carreras','evidencias.codigo_car','=','carreras.codigo_car')
                                 ->select('profesor.*','formularios.fecha_realizacion','formularios.titulo','carreras.nombre_car','formularios.id','evidencias.codigo_car')
                                 ->get();
-        return view('revisor.EvidenciasEnviadasDac',["evidencias"=>$evidencias]);   
+        return view('revisor.evidenciasEnviadasDac',["evidencias"=>$evidencias]);   
     }
 
     /**

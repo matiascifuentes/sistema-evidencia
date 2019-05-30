@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+
     <div class="row justify-content-center">
         @if(Session::has('success'))
             <div class="col-md-12 alert alert-info" role="alert">
@@ -24,9 +25,31 @@
     </div>
 </div>
 <br>
-
+<div class="container-fluid">
+    <div class="card-columns">
+            <div class="card bg-danger ">
+                <div class="card-body text-center">
+                    <span ><i class="fa fa-times fa-2x fa-fw"></i></span>
+                    <a class="btn btn-danger btn-block"style="color:black" href="{{route('revnoaprobadas')}}"><p class="card-text">Evidencias Rechazadas</p></a>
+                </div>
+            </div>
+            <div class="card bg-success ">
+                <div class="card-body text-center">
+                    <span ><i class="fa fa-check-square-o fa-2x fa-fw"></i></span>
+                    <a class="btn btn-success btn-block"style="color:black" href="{{route('revaprobadas')}}"><p class="card-text">Evidencias Aprobadas</p></a>
+                </div>
+            </div>
+            <div class="card bg-warning ">
+                <div class="card-body text-center">
+                    <span ><i class="fa fa-check-square-o fa-2x fa-fw"></i></span>
+                    <a class="btn btn-warning btn-block"style="color:black" href="{{route('evenviadas')}}"><p class="card-text">Evidencias Enviadas</p></a>
+                </div>
+            </div>
+    </div>
+</div>
+<br>
 <div class="container">
-
+    
     <h2>Prioridad por</h2>
     <!-- Nav pills -->
     <ul class="nav nav-tabs">
@@ -43,11 +66,9 @@
             <a class="nav-link" data-toggle="tab" href="#orden4">Fecha de creación DESC</a>
         </li>
     </ul>
-
   <!-- Tab panes -->
     <div class="tab-content">
         <div id="orden1" class="container tab-pane active"><br>
-
             <div class="col-md-6">
                @if($evidencias->count())
                @foreach($evidencias->sortBy('fecha_realizacion') as $evidencia)
